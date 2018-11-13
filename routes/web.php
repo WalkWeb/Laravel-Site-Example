@@ -11,10 +11,20 @@
 |
 */
 
+/**
+ * Домашняя страница
+ */
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function() {
+    Route::get('/', 'StatsController@index')->name('admin.index');
+    Route::resource('/category', 'CategoryController', ['as' => 'admin']);
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
