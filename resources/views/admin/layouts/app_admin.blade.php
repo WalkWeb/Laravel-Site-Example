@@ -43,7 +43,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog</a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{route('admin.category.index')}}">Категории</a></li>
-                            <li><a href="#">Материалы</a></li>
+                            <li><a href="{{route('admin.post.index')}}">Посты</a></li>
                             <li><a href="#">###</a></li>
                             <li><a href="#">###</a></li>
                         </ul>
@@ -86,6 +86,7 @@
 </div>
 
 <!-- Scripts -->
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

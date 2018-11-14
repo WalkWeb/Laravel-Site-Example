@@ -6,8 +6,8 @@
 
         @component('admin.components.breadcrumb')
             @slot('title') Список категорий @endslot
-            @slot('parent') Список категорий @endslot
-            @slot('active') Список категорий @endslot
+            @slot('parent') Главная @endslot
+            @slot('active') Категории @endslot
         @endcomponent
 
         <hr />
