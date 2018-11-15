@@ -180,6 +180,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Самописные провайдены
+         */
+        App\Providers\BlogServiceProvider::class,
     ],
 
     /*

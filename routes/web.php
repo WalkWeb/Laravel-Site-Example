@@ -12,20 +12,25 @@
 */
 
 /**
- * Домашняя страница
+ * Главная
  */
 Route::get('/', function () {
-    return view('welcome');
+    return view('blog.home');
 });
 
+/**
+ * Админка
+ */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function() {
     Route::get('/', 'StatsController@index')->name('admin.index');
     Route::resource('/category', 'CategoryController', ['as' => 'admin']);
     Route::resource('/post', 'PostController', ['as' => 'admin']);
 });
 
+/**
+ * Хз
+ */
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 
