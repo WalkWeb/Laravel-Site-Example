@@ -33,4 +33,30 @@ class Category extends Model
     {
         return $this->hasMany(self::class, 'parent_id');
     }
+
+
+    /**
+     * Указывает количество постов, связанных с категорией
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function posts()
+    {
+        return $this->morphedByMany('App\Post', 'lk_post_to_category');
+    }
+
+    /**
+     *
+     *
+     * @param $query
+     * @param $count
+     * @return mixed
+     */
+    public function scopeLastCategories($query, $count)
+    {
+        return $query->orderBy('created_at', 'desc')->take($count)->get();
+    }
+
+
+
 }

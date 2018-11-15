@@ -36,6 +36,28 @@ class Post extends Model
         return $this->morphToMany('App\Category', 'lk_post_to_category');
     }
 
+    /**
+     * Scope - отображать только опубликованные посты
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('published', 1);
+    }
+
+    /**
+     * Scope - сортировка по дате, с конца, и только последние $count записей
+     *
+     * @param $query
+     * @param $count
+     * @return mixed
+     */
+    public function scopeLastPosts($query, $count)
+    {
+        return $query->orderBy('created_at', 'desc')->take($count)->get();
+    }
 
 
 
