@@ -11,26 +11,26 @@
 |
 */
 
-/**
- * Главная
- */
+// Главная
 Route::get('/', function () {
     return view('blog.home');
 });
 
-/**
- * Админка
- */
+// Просмотр категорий и постов
+Route::get('/blog/category/{slug?}', 'BlogController@category')->name('category');
+Route::get('/blog/post/{slug?}', 'BlogController@post')->name('post');
+
+// Админка
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function() {
     Route::get('/', 'StatsController@index')->name('admin.index');
     Route::resource('/category', 'CategoryController', ['as' => 'admin']);
     Route::resource('/post', 'PostController', ['as' => 'admin']);
 });
 
-/**
- * Хз
- */
+// Хз :))
 Auth::routes();
+
+// TODO Сюда переадресовывает после регистрации и/или авторизации. Надо бы удалить, а переадресовывать на главную
 Route::get('/home', 'HomeController@index')->name('home');
 
 
