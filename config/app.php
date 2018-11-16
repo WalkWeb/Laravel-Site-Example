@@ -179,11 +179,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        /*
-         * Самописные провайдены
-         */
-        App\Providers\BlogServiceProvider::class,
     ],
 
     /*
