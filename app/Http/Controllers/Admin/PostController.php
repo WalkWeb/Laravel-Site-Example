@@ -51,18 +51,7 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * Страница редактирования поста
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
@@ -77,7 +66,7 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Принимает post-данные на обновление поста, обновляет его и переадресовывает на страницу со списков всех постов
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Post  $post
@@ -95,7 +84,7 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаляет пост
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
