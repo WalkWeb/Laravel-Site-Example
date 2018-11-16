@@ -9,14 +9,10 @@
     @endif
 </select>
 
-<label for="title">Наименование</label>
+<label for="title">Название</label>
 <input type="text" class="form-control" id="title" name="title" placeholder="Заголовок категории" value="{{$category->title ?? ''}}" required>
 
-
-<label for="slug">URL</label>
-<input type="text" class="form-control" name="slug" placeholder="Автоматическая генерация" value="{{$category->slug ?? ''}}" readonly="">
-
-<label for="parend_id">Родительская категория</label>
+<label for="parend_id">Категория</label>
 <select class="form-control" name="parend_id" id="parend_id">
     <option value="0">Без родительской категории</option>
     @include('admin.categories.partials.categories', ['categories' => $categories])

@@ -20,6 +20,7 @@
 
                     <div class="col-sm-6">
                         <a href="{{route('admin.category.create')}}" class="btn btn-block btn-default">Создать категорию</a>
+                        <h4>Последние добавленные категории:</h4>
                         @foreach($categories as $category)
                             <a href="{{route('admin.category.edit', $category)}}" class="list-group-item">
                                 <h4 class="list-group-item-heading">{{$category->title}}</h4>
@@ -30,7 +31,8 @@
                         @endforeach
                     </div>
                     <div class="col-sm-6">
-                        <a href="{{route('admin.post.create')}}" class="btn btn-block btn-default">Создать материал</a>
+                        <a href="{{route('admin.post.create')}}" class="btn btn-block btn-default">Создать пост</a>
+                        <h4>Последние добавленные посты:</h4>
                         @foreach($posts as $post)
                             <a href="{{route('admin.post.edit', $post)}}" class="list-group-item">
                                 <h4 class="list-group-item-heading">{{$post->title}}</h4>
@@ -41,7 +43,7 @@
                         @endforeach
                     </div>
 
-
+                    <div style="width: 100%; clear: both;"></div>
                 </div>
             </section>
         </div>

@@ -3,19 +3,17 @@
 @section('content')
 
     <div class="container">
-        @component('admin.components.breadcrumb')
-            @slot('title') Редактирование категории @endslot
-            @slot('parent') Главная @endslot
-            @slot('active') Категории @endslot
-        @endcomponent
+        <section class="experience section">
+            <div class="section-inner">
+                <h2>Редактирование категории</h2>
 
-        <hr />
-
-        <form class="form-horizontal" action="{{route('admin.category.update', $category)}}" method="post">
-            {{csrf_field()}}
-            <input type="hidden" name="_method" value="put">
-            @include('admin.categories.partials.form')
-        </form>
+                <form class="form-horizontal" action="{{route('admin.category.update', $category)}}" method="post">
+                    {{csrf_field()}}
+                    <input type="hidden" name="_method" value="put">
+                    @include('admin.categories.partials.form')
+                </form>
+            </div>
+        </section>
     </div>
 
 @endsection

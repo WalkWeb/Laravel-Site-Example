@@ -16,7 +16,7 @@
 
 <header class="header">
     <div class="container">
-        <img class="profile-image img-responsive pull-left head_img" src="{{ asset('images/head_img.jpg') }}" alt="" />
+        <a href="{{url('/')}}"><img class="profile-image img-responsive pull-left head_img" src="{{ asset('images/head_img.jpg') }}" alt="" /></a>
         <div class="profile-content pull-left">
             <h1 class="name">Калиновский Юрий</h1>
             <h2 class="desc">Back-end PHP Programmer</h2>

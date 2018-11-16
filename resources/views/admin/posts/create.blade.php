@@ -3,18 +3,16 @@
 @section('content')
 
     <div class="container">
-        @component('admin.components.breadcrumb')
-            @slot('title') Создание поста @endslot
-            @slot('parent') Главная @endslot
-            @slot('active') Посты @endslot
-        @endcomponent
+        <section class="experience section">
+            <div class="section-inner">
+                <h2>Создание поста</h2>
 
-        <hr />
-
-        <form class="form-horizontal" action="{{route('admin.post.store')}}" method="post">
-            {{csrf_field()}}
-            @include('admin.posts.partials.form')
-        </form>
+                <form class="form-horizontal" action="{{route('admin.post.store')}}" method="post">
+                    {{csrf_field()}}
+                    @include('admin.posts.partials.form')
+                </form>
+            </div>
+        </section>
     </div>
 
 @endsection

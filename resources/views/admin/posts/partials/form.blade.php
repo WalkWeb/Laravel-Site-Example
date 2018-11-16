@@ -12,7 +12,7 @@
 <label for="title">Заголовок</label>
 <input type="text" class="form-control" id="title" name="title" placeholder="Заголовок поста" value="{{$post->title ?? ''}}" required>
 
-<label for="categories">Родительская категория</label>
+<label for="categories">Категория</label>
 <select class="form-control" name="categories[]" id="categories" multiple>
     <option value="0">Без родительской категории</option>
     @include('admin.posts.partials.categories', ['categories' => $categories])

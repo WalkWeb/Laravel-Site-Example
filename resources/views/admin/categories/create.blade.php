@@ -3,18 +3,16 @@
 @section('content')
 
     <div class="container">
-        @component('admin.components.breadcrumb')
-            @slot('title') Создание категории @endslot
-            @slot('parent') Главная @endslot
-            @slot('active') Категории @endslot
-        @endcomponent
+        <section class="experience section">
+            <div class="section-inner">
+                <h2>Создание категории</h2>
 
-        <hr />
-
-        <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post">
-            {{csrf_field()}}
-            @include('admin.categories.partials.form')
-        </form>
+                <form class="form-horizontal" action="{{route('admin.category.store')}}" method="post">
+                    {{csrf_field()}}
+                    @include('admin.categories.partials.form')
+                </form>
+            </div>
+        </section>
     </div>
 
 @endsection
