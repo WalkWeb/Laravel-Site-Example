@@ -5,12 +5,10 @@
 @section('meta_key', $post->meta_key)
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
+    <section class="experience section">
+        <div class="section-inner">
                 <h1>{{$post->title}}</h1>
                 {!! $post->desc !!}
-            </div>
         </div>
-    </div>
+    </section>
 @endsection

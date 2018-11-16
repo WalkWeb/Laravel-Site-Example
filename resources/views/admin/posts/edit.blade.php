@@ -3,20 +3,18 @@
 @section('content')
 
     <div class="container">
-        @component('admin.components.breadcrumb')
-            @slot('title') Редактирование поста @endslot
-            @slot('parent') Главная @endslot
-            @slot('active') Посты @endslot
-        @endcomponent
+        <section class="experience section">
+            <div class="section-inner">
+                <h2>Редактирование поста</h2>
 
-        <hr />
+                <form class="form-horizontal" action="{{route('admin.post.update', $post)}}" method="post">
 
-        <form class="form-horizontal" action="{{route('admin.post.update', $post)}}" method="post">
-
-            {{csrf_field()}}
-            <input type="hidden" name="_method" value="put">
-            @include('admin.posts.partials.form')
-        </form>
+                    {{csrf_field()}}
+                    <input type="hidden" name="_method" value="put">
+                    @include('admin.posts.partials.form')
+                </form>
+            </div>
+        </section>
     </div>
 
 @endsection
