@@ -2,27 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Post;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
+     * Главная страница
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('home');
+        return view('home', [
+            'posts' => Post::where('published', 1)->orderBy('created_at', 'desc')->paginate(10),
+            ]);
     }
 }

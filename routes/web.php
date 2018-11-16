@@ -12,9 +12,7 @@
 */
 
 // Главная
-Route::get('/', function () {
-    return view('blog.home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 // Просмотр категорий и постов
 Route::get('/blog/category/{slug?}', 'BlogController@category')->name('category');
@@ -27,7 +25,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::resource('/post', 'PostController', ['as' => 'admin']);
 });
 
-// Хз :))
+// Роуты для авторизации/регистрации/и т.д.
 Auth::routes();
 
 // TODO Сюда переадресовывает после регистрации и/или авторизации. Надо бы удалить, а переадресовывать на главную
