@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Пример сайта на Laravel')
+
 @section('content')
 
         @forelse($posts as $post)
