@@ -15,8 +15,8 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 // Просмотр категорий и постов
-Route::get('/blog/category/{slug?}', 'BlogController@category')->name('category');
-Route::get('/blog/post/{slug?}', 'BlogController@post')->name('post');
+Route::get('/blog/category/{id?}', 'BlogController@category')->name('category');
+Route::get('/blog/post/{id?}', 'BlogController@post')->name('post');
 
 // Админка
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function() {

@@ -14,9 +14,9 @@ class BlogController extends Controller
      * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function category($slug)
+    public function category(int $id)
     {
-        $category = Category::where('slug', $slug)->first();
+        $category = Category::where('id', $id)->first();
 
         return view('blog.category', [
             'category' => $category,
@@ -30,10 +30,10 @@ class BlogController extends Controller
      * @param $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function post($slug)
+    public function post(int $id)
     {
         return view('blog.post', [
-            'post' => Post::where('slug', $slug)->first(),
+            'post' => Post::find($id),
         ]);
     }
 }

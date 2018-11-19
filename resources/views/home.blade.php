@@ -5,7 +5,7 @@
         @forelse($posts as $post)
         <section class="experience section">
             <div class="section-inner">
-                <h2 class="heading"><a href="{{route('post', $post->slug)}}">{{$post->title}}</a></h2>
+                <h2 class="heading"><a href="{{route('post', $post->id)}}">{{$post->title}}</a></h2>
                 <div class="content">
                     {!! $post->desc_short !!}
                 </div>
