@@ -168,7 +168,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        //Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
 
         /*

@@ -1,20 +1,14 @@
 <label for="published">Статус</label>
 <select class="form-control" name="published" id="published">
-    @if (isset($post->id))
-        <option value="0" @if ($post->published === 0) selected="" @endif>Не опубликован</option>
-        <option value="1" @if ($post->published === 1) selected="" @endif>Опубликован</option>
-    @else
-        <option value="0">Не опубликовано</option>
-        <option value="1">Опубликовано</option>
-    @endif
+    <option value="1">Опубликовано</option>
+    <option value="0">Не опубликовано</option>
 </select>
 
 <label for="title">Заголовок</label>
 <input type="text" class="form-control" id="title" name="title" placeholder="Заголовок поста" value="{{$post->title ?? ''}}" required>
 
-<label for="categories">Категория</label>
-<select class="form-control" name="categories[]" id="categories" multiple>
-    <option value="0">Без родительской категории</option>
+<label for="category_id">Категория</label>
+<select class="form-control" name="category_id" id="category_id" multiple>
     @include('admin.posts.partials.categories', ['categories' => $categories])
 </select>
 

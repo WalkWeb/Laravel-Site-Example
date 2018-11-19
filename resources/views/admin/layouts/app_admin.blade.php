@@ -50,7 +50,26 @@
             </div>
         </div>
     </nav>
-
+    @if(session('status'))
+        <div class="container">
+            <section class="experience section">
+                <div class="section-inner">
+                    <p>{{ session('status') }}</p>
+                </div>
+            </section>
+        </div>
+    @endif
+    @if(count($errors) > 0)
+        <div class="container">
+            <section class="experience section">
+                <div class="section-inner">
+                @foreach($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+                </div>
+            </section>
+        </div>
+    @endif
     @yield('content')
 </div>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>

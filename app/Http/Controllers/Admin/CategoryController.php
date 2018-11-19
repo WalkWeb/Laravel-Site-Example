@@ -39,11 +39,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        Category::create($this->validate($request, [
+            'title' => 'required|unique:categories|max:30',
+            'published' => 'boolean',
+        ], [
+            'required' => 'Поле :attribute не заполнено',
+            'unique' => 'Поле :attribute не уникально',
+            'max' => 'Поле :attribute не может быть длиннее 30 символов',
+        ]));
 
-        // TODO Добавить параметр в сессию, по которой, будет показываться сообщение "категория успешно создана"
-
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('status', 'Категория успешно создана!');
     }
 
     /**
@@ -54,15 +59,13 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        // TODO Интересно, откуда берется $category?
-
         return view('admin.categories.edit', [
             'category' => $category,
         ]);
     }
 
     /**
-     * Изменяет данные о категории в базе и редиректит обратно на страницу редактирования этой категории
+     * Изменяет данные о категории и редиректит обратно на страницу редактирования этой категории
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Category  $category
@@ -70,11 +73,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $category->update($request->except('slug'));
+        $category->update($this->validate($request, [
+            'title' => 'required|unique:categories|max:30',
+            'published' => 'boolean',
+        ], [
+            'required' => 'Поле :attribute не заполнено',
+            'unique' => 'Поле :attribute не уникально',
+            'max' => 'Поле :attribute не может быть длиннее 30 символов',
+        ]));
 
-        // TODO Добавить параметр в сессию, по которой, будет показываться сообщение "категория успешно обновлена"
-
-        return redirect()->route('admin.category.edit', $category);
+        return redirect()->route('admin.category.edit', $category)->with('status', 'Категория успешно обновлена!');
     }
 
     /**

@@ -28,7 +28,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function() {
 // Роуты для авторизации/регистрации/и т.д.
 Auth::routes();
 
-// TODO Сюда переадресовывает после регистрации и/или авторизации. Надо бы удалить, а переадресовывать на главную
+// Сюда переадресовывает после регистрации и/или авторизации
+// При этом переадресация прописана в /vendor/laravel/framework/src/Illuminate/Foundation/Auth/RedirectsUsers.php
+// И нет возможности её изменить
 Route::get('/home', 'HomeController@index')->name('home');
 
 

@@ -6,6 +6,7 @@ use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -29,25 +30,39 @@ class PostController extends Controller
     public function create()
     {
         return view('admin.posts.create', [
-            'article' => [],
-            'categories' => Category::with('children')->where('parent_id', 0)->get(),
-            'delimiter' => ''
+            'categories' => Category::where('published', 1)->get(),
         ]);
     }
 
     /**
      * Принимает post запрос созданного поста, сохраняет его в базу и переадресовывает на страницу со всеми постами
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        $post = Post::create($request->all());
+        $data = $this->validate($request, [
+            'title' => 'required|max:255',
+            'desc_short' => 'required',
+            'desc' => 'required',
+            'meta_title' => 'required|max:255',
+            'meta_desc' => 'max:255',
+            'meta_key' => 'max:255',
+            'published' => 'boolean',
+            'category_id' => 'required|exists:categories,id',
+        ], [
+            'required' => 'Поле :attribute не заполнено',
+            'unique' => 'Поле :attribute не уникально',
+            'max' => 'Поле :attribute не может быть длиннее 255 символов',
+            'exists' => 'Вы указали некорректное поле категории'
+        ]);
 
-        if ($request->input('categories')) $post->categories()->attach($request->input('categories'));
+        $data['created_by'] = Auth::id();
 
-        return redirect()->route('admin.post.index');
+        Post::create($data);
+
+        return redirect()->route('admin.post.index')->with('status', 'Пост успешно создан!');
     }
 
     /**
@@ -60,13 +75,12 @@ class PostController extends Controller
     {
         return view('admin.posts.edit', [
             'post' => $post,
-            'categories' => Category::with('children')->where('parent_id', 0)->get(),
-            'delimiter' => ''
+            'categories' => Category::where('published', 1)->get(),
         ]);
     }
 
     /**
-     * Принимает post-данные на обновление поста, обновляет его и переадресовывает на страницу со списков всех постов
+     * Принимает post-данные на обновление поста, обновляет его и переадресовывает на страницу со списком всех постов
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Post  $post
@@ -74,13 +88,28 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->update($request->except('slug'));
+        $data = $this->validate($request, [
+            'title' => 'required|max:255',
+            'desc_short' => 'required',
+            'desc' => 'required',
+            'meta_title' => 'required|max:255',
+            'meta_desc' => 'max:255',
+            'meta_key' => 'max:255',
+            'published' => 'boolean',
+            'category_id' => 'required|exists:categories,id',
+        ], [
+            'required' => 'Поле :attribute не заполнено',
+            'unique' => 'Поле :attribute не уникально',
+            'max' => 'Поле :attribute не может быть длиннее 255 символов',
+            'exists' => 'Вы указали некорректное поле категории'
+        ]);
 
-        $post->categories()->detach();
+        $data['created_by'] = $post->created_by;
+        $data['edit_by'] = Auth::id();
 
-        if ($request->input('categories')) $post->categories()->attach($request->input('categories'));
+        $post->update($data);
 
-        return redirect()->route('admin.post.index');
+        return redirect()->route('admin.post.index')->with('status', 'Пост успешно обновлен!');
     }
 
     /**
@@ -91,7 +120,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->categories()->detach();
         $post->delete();
         return redirect()->route('admin.post.index');
     }

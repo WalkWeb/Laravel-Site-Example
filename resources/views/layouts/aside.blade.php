@@ -3,11 +3,9 @@
         <h2 class="heading">Категории публикаций</h2>
         <div class="content">
             <div class="skillset">
-
-                @include('layouts.menu', ['categories' => $categories])
-
-
-
+                @if(!empty($categories))
+                    @include('layouts.menu', ['categories' => $categories])
+                @endif
             </div>
         </div>
     </div>
