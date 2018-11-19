@@ -15,6 +15,6 @@ class HomeController extends Controller
     {
         return view('home', [
             'posts' => Post::where('published', 1)->orderBy('created_at', 'desc')->paginate(10),
-            ]);
+        ]);
     }
 }

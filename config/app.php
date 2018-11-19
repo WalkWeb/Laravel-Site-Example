@@ -179,6 +179,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * Самописный сервис-провайдер, отвечает за меню на сайте
+         */
+        App\Providers\MenuServiceProvider::class,
     ],
 
     /*
