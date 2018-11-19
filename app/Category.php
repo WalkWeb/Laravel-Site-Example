@@ -24,13 +24,13 @@ class Category extends Model
     public $timestamps = false;
 
     /**
-     * Указывает количество постов, связанных с категорией
+     * Возвращает посты, связанные с категорией
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function posts()
     {
-        //return $this->morphedByMany('App\Post', 'lk_post_to_category');
+        return $this->hasMany('App\Post');
     }
 
     /**

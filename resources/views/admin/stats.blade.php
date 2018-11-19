@@ -41,7 +41,7 @@
                                 <a href="{{route('admin.post.edit', $post)}}" class="list-group-item">
                                     <h4 class="list-group-item-heading">{{$post->title}}</h4>
                                     <p class="list-group-item-text">
-                                        {{$post->categories()->pluck('title')->implode(', ')}}
+                                        {{$post->category($post->category_id)['title']}}
                                     </p>
                                 </a>
                             @endforeach

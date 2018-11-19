@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
+use App\Category;
 
 class Post extends Model
 {
@@ -16,22 +16,6 @@ class Post extends Model
         'title', 'category_id', 'desc_short', 'desc', 'meta_title',
         'meta_desc', 'meta_key', 'published', 'created_by', 'edit_by'
     ];
-
-    /**
-     * Задает автора поста
-     */
-    public function setCreatedAttribute()
-    {
-        $this->attributes['created_by'] = Auth::id();
-    }
-
-    /**
-     *
-     */
-    public function categories()
-    {
-        //return $this->morphToMany('App\Category', 'lk_post_to_category');
-    }
 
     /**
      * Scope - отображать только опубликованные посты
@@ -56,6 +40,15 @@ class Post extends Model
         return $query->orderBy('created_at', 'desc')->take($count)->get();
     }
 
-
+    /**
+     * Возвращает название категории, по значению category_id у поста
+     *
+     * @param int $id
+     * @return mixed
+     */
+    public function category(int $id)
+    {
+        return Category::find($id);
+    }
 
 }
