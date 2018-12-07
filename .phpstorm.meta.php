@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-11-17 12:56:14.
+    * Generated on 2018-11-20 17:06:52.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -113,7 +113,9 @@ namespace PHPSTORM_META {
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
+        'form' => \Collective\Html\FormBuilder::class,
         'hash' => \Illuminate\Hashing\BcryptHasher::class,
+        'html' => \Collective\Html\HtmlBuilder::class,
         'log' => \Illuminate\Log\Writer::class,
         'mailer' => \Illuminate\Mail\Mailer::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -243,7 +245,9 @@ namespace PHPSTORM_META {
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
+        'form' => \Collective\Html\FormBuilder::class,
         'hash' => \Illuminate\Hashing\BcryptHasher::class,
+        'html' => \Collective\Html\HtmlBuilder::class,
         'log' => \Illuminate\Log\Writer::class,
         'mailer' => \Illuminate\Mail\Mailer::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -373,7 +377,9 @@ namespace PHPSTORM_META {
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
+        'form' => \Collective\Html\FormBuilder::class,
         'hash' => \Illuminate\Hashing\BcryptHasher::class,
+        'html' => \Collective\Html\HtmlBuilder::class,
         'log' => \Illuminate\Log\Writer::class,
         'mailer' => \Illuminate\Mail\Mailer::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -503,7 +509,9 @@ namespace PHPSTORM_META {
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
+        'form' => \Collective\Html\FormBuilder::class,
         'hash' => \Illuminate\Hashing\BcryptHasher::class,
+        'html' => \Collective\Html\HtmlBuilder::class,
         'log' => \Illuminate\Log\Writer::class,
         'mailer' => \Illuminate\Mail\Mailer::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -633,7 +641,9 @@ namespace PHPSTORM_META {
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
+        'form' => \Collective\Html\FormBuilder::class,
         'hash' => \Illuminate\Hashing\BcryptHasher::class,
+        'html' => \Collective\Html\HtmlBuilder::class,
         'log' => \Illuminate\Log\Writer::class,
         'mailer' => \Illuminate\Mail\Mailer::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -763,7 +773,9 @@ namespace PHPSTORM_META {
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
+        'form' => \Collective\Html\FormBuilder::class,
         'hash' => \Illuminate\Hashing\BcryptHasher::class,
+        'html' => \Collective\Html\HtmlBuilder::class,
         'log' => \Illuminate\Log\Writer::class,
         'mailer' => \Illuminate\Mail\Mailer::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -893,7 +905,9 @@ namespace PHPSTORM_META {
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
         'filesystem.disk' => \Illuminate\Filesystem\FilesystemAdapter::class,
+        'form' => \Collective\Html\FormBuilder::class,
         'hash' => \Illuminate\Hashing\BcryptHasher::class,
+        'html' => \Collective\Html\HtmlBuilder::class,
         'log' => \Illuminate\Log\Writer::class,
         'mailer' => \Illuminate\Mail\Mailer::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
