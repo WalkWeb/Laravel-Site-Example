@@ -3,18 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
     /**
      * Главная страница
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
+        $post = new Post();
+
         return view('home', [
-            'posts' => Post::where('published', 1)->orderBy('created_at', 'desc')->paginate(10),
+            'posts' => $post->where('published', 1)->orderBy('created_at', 'desc')->paginate(10),
         ]);
     }
 }

@@ -11,7 +11,7 @@ class BlogController extends Controller
     /**
      * Вывод информации о категории и постам в данной категории
      *
-     * @param $slug
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function category(int $id)
@@ -27,7 +27,7 @@ class BlogController extends Controller
     /**
      * Выводит информацию по посту
      *
-     * @param $slug
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function post(int $id)
