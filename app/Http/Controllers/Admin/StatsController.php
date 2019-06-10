@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Post;
-use App\Category;
+use App\Models\Post;
+use App\Models\Category;
 
 class StatsController extends Controller
 {

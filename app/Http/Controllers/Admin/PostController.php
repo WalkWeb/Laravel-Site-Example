@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Post;
-use App\Category;
+use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +38,8 @@ class PostController extends Controller
      * Принимает post запрос созданного поста, сохраняет его в базу и переадресовывает на страницу со всеми постами
      *
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return $this
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -68,8 +69,8 @@ class PostController extends Controller
     /**
      * Страница редактирования поста
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Post $post)
     {
@@ -82,9 +83,10 @@ class PostController extends Controller
     /**
      * Принимает post-данные на обновление поста, обновляет его и переадресовывает на страницу со списком всех постов
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Post $post
+     * @return $this
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Post $post)
     {

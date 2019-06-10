@@ -1,10 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
 
 class Category extends Model
 {
@@ -26,11 +24,11 @@ class Category extends Model
     /**
      * Возвращает посты, связанные с категорией
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Models\Post');
     }
 
     /**

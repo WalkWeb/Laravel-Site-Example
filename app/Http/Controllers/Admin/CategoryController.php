@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -34,8 +34,9 @@ class CategoryController extends Controller
      * Принимает данные из формы создания новой категории, создает категорию и редиректит на страницу со списком
      * категорий
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return $this
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -54,8 +55,8 @@ class CategoryController extends Controller
     /**
      * Страница редактирования категории
      *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Category $category)
     {
@@ -67,9 +68,10 @@ class CategoryController extends Controller
     /**
      * Изменяет данные о категории и редиректит обратно на страницу редактирования этой категории
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Category $category
+     * @return $this
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Category $category)
     {
@@ -89,7 +91,8 @@ class CategoryController extends Controller
      * Удаление категории
      *
      * @param Category $category
-     * @return \Illuminate\Http\RedirectResponse
+     * @return $this
+     * @throws \Exception
      */
     public function destroy(Category $category)
     {
