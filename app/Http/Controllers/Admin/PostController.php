@@ -115,8 +115,9 @@ class PostController extends Controller
     /**
      * Удаляет пост
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Post $post)
     {
