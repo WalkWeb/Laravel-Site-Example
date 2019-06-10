@@ -56,6 +56,14 @@
         </div>
     </div>
 
-
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li><a href="{{route('clear-view')}}" target="_blank" title="">Очистить кэш вьюх</a></li>
+                <li><a href="{{route('clear-config')}}" target="_blank" title="">Очистить кэш конфигов</a></li>
+                <li><a href="{{route('clear-route')}}" target="_blank" title="">Очистить кэш роутингов</a></li>
+            </ul>
+        </div>
+    </div>
 
 @endsection

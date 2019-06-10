@@ -12,6 +12,22 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function() {
     Route::get('/', 'StatsController@index')->name('admin.index');
     Route::resource('/category', 'CategoryController', ['as' => 'admin']);
     Route::resource('/post', 'PostController', ['as' => 'admin']);
+
+    // Очистка кэша через админку, чтобы не подключиться каждый раз к VPS
+    Route::get('/clear-route', function() {
+        Artisan::call('route:clear');
+        return 'php artisan route:clear - OK';
+    })->name('clear-route');
+
+    Route::get('/clear-config', function() {
+        Artisan::call('config:cache');
+        return 'php artisan config:cache - OK';
+    })->name('clear-config');
+
+    Route::get('/clear-view', function() {
+        Artisan::call('view:clear');
+        return 'php artisan view:clear - OK';
+    })->name('clear-view');
 });
 
 // Роуты для авторизации/регистрации/и т.д.
