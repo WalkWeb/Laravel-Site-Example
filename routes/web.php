@@ -8,7 +8,7 @@ Route::get('/blog/category/{id?}', 'BlogController@category')->name('category');
 Route::get('/blog/post/{id?}', 'BlogController@post')->name('post');
 
 // Админка
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function() {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'StatsController@index')->name('admin.index');
     Route::resource('/category', 'CategoryController', ['as' => 'admin']);
     Route::resource('/post', 'PostController', ['as' => 'admin']);
